@@ -53,25 +53,25 @@ public class GameRunner implements KeyListener{
 	}
 
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT && currentCol < MAZE_DIMENSION - 1) {
+        if ((e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D) && currentCol < MAZE_DIMENSION - 1) {
         	orientation = 3;
         	if (isValidMove(currentRow, currentCol + 1)){
 				player.setDirection(Direction.RIGHT);
 				currentCol++; 
         	}   		
-        }else if (e.getKeyCode() == KeyEvent.VK_LEFT && currentCol > 0) {
+        }else if ((e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_A) && currentCol > 0) {
         	orientation = 1;
         	if (isValidMove(currentRow, currentCol - 1)) {
 				player.setDirection(Direction.LEFT);
 				currentCol--;	
 			}
-        }else if (e.getKeyCode() == KeyEvent.VK_UP && currentRow > 0) {
+        }else if ((e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_W) && currentRow > 0) {
         	orientation = 2;
         	if (isValidMove(currentRow - 1, currentCol)) {
 				player.setDirection(Direction.UP);
 				currentRow--;
 			}
-        }else if (e.getKeyCode() == KeyEvent.VK_DOWN && currentRow < MAZE_DIMENSION - 1) {
+        }else if ((e.getKeyCode() == KeyEvent.VK_DOWN || e.getKeyCode() == KeyEvent.VK_S) && currentRow < MAZE_DIMENSION - 1) {
         	orientation = 0;
         	if (isValidMove(currentRow + 1, currentCol)){
         		player.setDirection(Direction.DOWN);
