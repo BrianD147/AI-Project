@@ -12,6 +12,7 @@ public class GameRunner implements KeyListener{
 	private Maze model;
 	private int currentRow;
 	private int currentCol;
+	// Whenever the player presses a direction, we will set the orientation to that direction
 	private int orientation; //0=south 1=west, 2=north, 3=east
 	
 	public GameRunner() throws Exception{
@@ -100,27 +101,48 @@ public class GameRunner implements KeyListener{
 	}
 	
 	private void interactWithBlock(int row, int col) {
+		// Depending on orientation, detect what type of block the player wants to interact with
 		if(orientation == 0) {
-			// If the block south of the player is a ?
+			// If the block south of player is...
 			if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row+1, col) == '\u0032') {
-				JOptionPane.showMessageDialog(null, "? is south of player");
+				QuestionBlock();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row+1, col) == '\u0031') {
+				Sword();
+				model.set(row+1, col, '\u0020'); //Get rid of sword block
 			}
 		}else if(orientation == 1) {
-			// If the block west of the player is a ?
+			// If the block west of the player is...
 			if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col-1) == '\u0032') {
-				JOptionPane.showMessageDialog(null, "? is west of player");
+				QuestionBlock();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col-1) == '\u0031') {
+				Sword();
+				model.set(row, col-1, '\u0020'); //Get rid of sword block
 			}
 		}else if(orientation == 2) {
-			// If the block north of the player is a ?
+			// If the block north of the player is...
 			if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row-1, col) == '\u0032') {
-				JOptionPane.showMessageDialog(null, "? is north of player");
+				QuestionBlock();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row-1, col) == '\u0031') {
+				Sword();
+				model.set(row-1, col, '\u0020'); //Get rid of sword block
 			}
 		}else if(orientation == 3) {
-			// If the block east of the player is a ?
+			// If the block east of the player is...
 			if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col+1) == '\u0032') {
-				JOptionPane.showMessageDialog(null, "? is east of player");
+				QuestionBlock();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col+1) == '\u0031') {
+				Sword();
+				model.set(row, col+1, '\u0020'); //Get rid of sword block
 			}
 		}
+	}
+	
+	private void QuestionBlock() {
+		JOptionPane.showMessageDialog(null, "Display information");
+	}
+	
+	private void Sword() {
+		JOptionPane.showMessageDialog(null, "Attack +1");
 	}
 	
 	private Sprite[] getSprites() throws Exception{
