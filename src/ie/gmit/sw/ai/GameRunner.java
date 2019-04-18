@@ -115,6 +115,22 @@ public class GameRunner implements KeyListener{
 			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row+1, col) == '\u0034') {
 				HBomb();
 				model.set(row+1, col, '0'); //Get rid of h-bomb
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row+1, col) == '\u0036') {
+				BlackSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row+1, col) == '\u0037') {
+				BlueSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row+1, col) == '\u0038') {
+				BrownSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row+1, col) == '\u0039') {
+				GreenSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row+1, col) == '\u003A') {
+				GreySpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row+1, col) == '\u003B') {
+				OrangeSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row+1, col) == '\u003C') {
+				RedSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row+1, col) == '\u003D') {
+				YellowSpider();
 			}
 		}else if(orientation == 1) {
 			// If the block west of the player is...
@@ -129,6 +145,22 @@ public class GameRunner implements KeyListener{
 			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col-1) == '\u0034') {
 				HBomb();
 				model.set(row, col-1, '0'); //Get rid of h-bomb
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col-1) == '\u0036') {
+				BlackSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col-1) == '\u0037') {
+				BlueSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col-1) == '\u0038') {
+				BrownSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col-1) == '\u0039') {
+				GreenSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col-1) == '\u003A') {
+				GreySpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col-1) == '\u003B') {
+				OrangeSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col-1) == '\u003C') {
+				RedSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col-1) == '\u003D') {
+				YellowSpider();
 			}
 		}else if(orientation == 2) {
 			// If the block north of the player is...
@@ -143,6 +175,22 @@ public class GameRunner implements KeyListener{
 			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row-1, col) == '\u0034') {
 				HBomb();
 				model.set(row-1, col, '0'); //Get rid of h-bomb
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row-1, col) == '\u0036') {
+				BlackSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row-1, col) == '\u0037') {
+				BlueSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row-1, col) == '\u0038') {
+				BrownSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row-1, col) == '\u0039') {
+				GreenSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row-1, col) == '\u003A') {
+				GreySpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row-1, col) == '\u003B') {
+				OrangeSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row-1, col) == '\u003C') {
+				RedSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row-1, col) == '\u003D') {
+				YellowSpider();
 			}
 		}else if(orientation == 3) {
 			// If the block east of the player is...
@@ -157,6 +205,22 @@ public class GameRunner implements KeyListener{
 			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col+1) == '\u0034') {
 				HBomb();
 				model.set(row, col+1, '0'); //Get rid of h-bomb
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col+1) == '\u0036') {
+				BlackSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col+1) == '\u0037') {
+				BlueSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col+1) == '\u0038') {
+				BrownSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col+1) == '\u0039') {
+				GreenSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col+1) == '\u003A') {
+				GreySpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col+1) == '\u003B') {
+				OrangeSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col+1) == '\u003C') {
+				RedSpider();
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col+1) == '\u003D') {
+				YellowSpider();
 			}
 		}
 	}
@@ -175,6 +239,38 @@ public class GameRunner implements KeyListener{
 	
 	private void HBomb() {
 		JOptionPane.showMessageDialog(null, "Big BOOM!");
+	}
+	
+	private void BlackSpider() {
+		JOptionPane.showMessageDialog(null, "It's a Black Spider");
+	}
+	
+	private void BlueSpider() {
+		JOptionPane.showMessageDialog(null, "It's a Blue Spider");
+	}
+	
+	private void BrownSpider() {
+		JOptionPane.showMessageDialog(null, "It's a Brown Spider");
+	}
+	
+	private void GreenSpider() {
+		JOptionPane.showMessageDialog(null, "It's a Green Spider");
+	}
+	
+	private void GreySpider() {
+		JOptionPane.showMessageDialog(null, "It's a Grey Spider");
+	}
+	
+	private void OrangeSpider() {
+		JOptionPane.showMessageDialog(null, "It's a Orange Spider");
+	}
+	
+	private void RedSpider() {
+		JOptionPane.showMessageDialog(null, "It's a Red Spider");
+	}
+	
+	private void YellowSpider() {
+		JOptionPane.showMessageDialog(null, "It's a Yellow Spider");
 	}
 	
 	private Sprite[] getSprites() throws Exception{
