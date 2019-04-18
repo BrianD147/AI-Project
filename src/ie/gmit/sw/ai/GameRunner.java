@@ -3,6 +3,7 @@ package ie.gmit.sw.ai;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+
 public class GameRunner implements KeyListener{
 	private static final int MAZE_DIMENSION = 100;
 	private static final int IMAGE_COUNT = 14;
@@ -11,6 +12,7 @@ public class GameRunner implements KeyListener{
 	private Maze model;
 	private int currentRow;
 	private int currentCol;
+	private int orientation; //0=south 1=west, 2=north, 3=east
 	
 	public GameRunner() throws Exception{
 		model = new Maze(MAZE_DIMENSION);
@@ -51,27 +53,33 @@ public class GameRunner implements KeyListener{
 
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT && currentCol < MAZE_DIMENSION - 1) {
+        	orientation = 3;
         	if (isValidMove(currentRow, currentCol + 1)){
 				player.setDirection(Direction.RIGHT);
 				currentCol++; 
         	}   		
         }else if (e.getKeyCode() == KeyEvent.VK_LEFT && currentCol > 0) {
+        	orientation = 1;
         	if (isValidMove(currentRow, currentCol - 1)) {
 				player.setDirection(Direction.LEFT);
 				currentCol--;	
 			}
         }else if (e.getKeyCode() == KeyEvent.VK_UP && currentRow > 0) {
+        	orientation = 2;
         	if (isValidMove(currentRow - 1, currentCol)) {
 				player.setDirection(Direction.UP);
 				currentRow--;
 			}
         }else if (e.getKeyCode() == KeyEvent.VK_DOWN && currentRow < MAZE_DIMENSION - 1) {
+        	orientation = 0;
         	if (isValidMove(currentRow + 1, currentCol)){
         		player.setDirection(Direction.DOWN);
 				currentRow++;
         	}         	  	
         }else if (e.getKeyCode() == KeyEvent.VK_Z){
         	view.toggleZoom();
+        }else if(e.getKeyCode() == KeyEvent.VK_SPACE){
+        	interactWithBlock(currentRow, currentCol);
         }else{
         	return;
         }
@@ -88,6 +96,30 @@ public class GameRunner implements KeyListener{
 			return true;
 		}else{
 			return false; //Can't move
+		}
+	}
+	
+	private void interactWithBlock(int row, int col) {
+		if(orientation == 0) {
+			// If the block south of the player is a ?
+			if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row+1, col) == '\u0032') {
+				JOptionPane.showMessageDialog(null, "? is south of player");
+			}
+		}else if(orientation == 1) {
+			// If the block west of the player is a ?
+			if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col-1) == '\u0032') {
+				JOptionPane.showMessageDialog(null, "? is west of player");
+			}
+		}else if(orientation == 2) {
+			// If the block north of the player is a ?
+			if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row-1, col) == '\u0032') {
+				JOptionPane.showMessageDialog(null, "? is north of player");
+			}
+		}else if(orientation == 3) {
+			// If the block east of the player is a ?
+			if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col+1) == '\u0032') {
+				JOptionPane.showMessageDialog(null, "? is east of player");
+			}
 		}
 	}
 	
