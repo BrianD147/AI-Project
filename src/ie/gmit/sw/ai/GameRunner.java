@@ -108,7 +108,13 @@ public class GameRunner implements KeyListener{
 				QuestionBlock();
 			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row+1, col) == '\u0031') {
 				Sword();
-				model.set(row+1, col, '0'); //Get rid of sword block
+				model.set(row+1, col, '0'); //Get rid of sword
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row+1, col) == '\u0033') {
+				Bomb();
+				model.set(row+1, col, '0'); //Get rid of bomb
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row+1, col) == '\u0034') {
+				HBomb();
+				model.set(row+1, col, '0'); //Get rid of h-bomb
 			}
 		}else if(orientation == 1) {
 			// If the block west of the player is...
@@ -116,7 +122,13 @@ public class GameRunner implements KeyListener{
 				QuestionBlock();
 			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col-1) == '\u0031') {
 				Sword();
-				model.set(row, col-1, '0'); //Get rid of sword block
+				model.set(row, col-1, '0'); //Get rid of sword
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col-1) == '\u0033') {
+				Bomb();
+				model.set(row, col-1, '0'); //Get rid of bomb
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col-1) == '\u0034') {
+				HBomb();
+				model.set(row, col-1, '0'); //Get rid of h-bomb
 			}
 		}else if(orientation == 2) {
 			// If the block north of the player is...
@@ -124,7 +136,13 @@ public class GameRunner implements KeyListener{
 				QuestionBlock();
 			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row-1, col) == '\u0031') {
 				Sword();
-				model.set(row-1, col, '0'); //Get rid of sword block
+				model.set(row-1, col, '0'); //Get rid of sword
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row-1, col) == '\u0033') {
+				Bomb();
+				model.set(row-1, col, '0'); //Get rid of bomb
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row-1, col) == '\u0034') {
+				HBomb();
+				model.set(row-1, col, '0'); //Get rid of h-bomb
 			}
 		}else if(orientation == 3) {
 			// If the block east of the player is...
@@ -132,7 +150,13 @@ public class GameRunner implements KeyListener{
 				QuestionBlock();
 			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col+1) == '\u0031') {
 				Sword();
-				model.set(row, col+1, '0'); //Get rid of sword block
+				model.set(row, col+1, '0'); //Get rid of sword
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col+1) == '\u0033') {
+				Bomb();
+				model.set(row, col+1, '0'); //Get rid of bomb
+			}else if(row <= model.size() - 1 && col <= model.size() - 1 && model.get(row, col+1) == '\u0034') {
+				HBomb();
+				model.set(row, col+1, '0'); //Get rid of h-bomb
 			}
 		}
 	}
@@ -143,6 +167,14 @@ public class GameRunner implements KeyListener{
 	
 	private void Sword() {
 		JOptionPane.showMessageDialog(null, "Attack +1");
+	}
+	
+	private void Bomb() {
+		JOptionPane.showMessageDialog(null, "Little BOOM!");
+	}
+	
+	private void HBomb() {
+		JOptionPane.showMessageDialog(null, "Big BOOM!");
 	}
 	
 	private Sprite[] getSprites() throws Exception{
